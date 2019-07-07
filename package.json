@@ -1,0 +1,10 @@
+{
+  "name": "nodeurl",
+  "version": "1.0.0",
+  "description": "Simple url shortener implemented with Express and Sequelize",
+  "main": "src/index.js",
+  "repository": "https://github.com/marvnet/nodeurl",
+  "author": "MagicMarvMan <marvin.kai@gmx.de>",
+  "license": "MIT",
+  "private": false
+}
