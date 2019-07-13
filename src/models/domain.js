@@ -11,5 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {})
 
+    Domain.associate = (models) => {
+        models.Domain.belongsTo(models.User, {
+            onDelete: 'cascade'
+        })
+    }
+
     return Domain
 }
