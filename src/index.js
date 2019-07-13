@@ -55,8 +55,12 @@ app.get("/admin", (req, res, next) => {
         <div class="container">
             <h1>${config.title}</h1>
             <form action="javascript:void(0);" onsubmit="javascript:createCallback();">
-                <input type="text" placeholder="Zieladresse" id="targetInput"><br>
-                <input type="submit" value="Erstellen">
+                <div class="form-control">
+                    <label for="inputLink">Target url</label>
+                    <input type="text" class="form-control" id="inputLink" aria-describedby="linkHelp" placeholder="Enter link">
+                    <small id="linkHelp" class="form-text text-muted">Please enter the link you want to shorten.</small>
+                </div>
+                <input type="submit" value="Erstellen" class="btn btn-primary">
             </form>
             <p>
                 <b id="response"></b>
@@ -78,7 +82,7 @@ app.get("/admin", (req, res, next) => {
         }
 
         function createCallback() {
-            createLink(document.getElementById("targetInput").value);
+            createLink(document.getElementById("inputLink").value);
         }
     </script>
 
