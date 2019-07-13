@@ -228,8 +228,14 @@ app.post("/api/insights", (req, res, next) => {
 
 app.get("/:shortcode", (req, res, next) => {
     if(cache.indexOf(req.params.shortcode) > -1) {
+        if(debug) {
+            res.setHeader("X-Cache", true)
+        }
         res.redirect(config.redirect, cache[req.params.shortcode])
     } else {
+        if(debug) {
+            res.setHeader("X-Cache", false)
+        }
         models.Link.count({
             where: {
                 shortcode: req.params.shortcode
