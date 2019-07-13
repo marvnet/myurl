@@ -46,9 +46,14 @@ app.get("/admin", (req, res, next) => {
 
     <script type="application/javascript">
         function createLink(target) {
+            var responseJson = {};
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("POST", "/api/create");
             xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.addEventListener("load", function (event) {
+                responseJson = JSON.parse(xmlhttp.responseText);
+                document.getElementById("response").innerHTML = 'Link created: <a href="http://' + config.domain + '/' + responseJson.shortcode + '">' + config.domain + '/' + responseJson.shortcode + '</a>';
+            });
             xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
         }
 
