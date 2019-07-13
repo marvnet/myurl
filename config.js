@@ -1,5 +1,6 @@
 
 module.exports = {
+    title: "MyURL",
     production: {
         dialect: "sqlite",
         storage: "./db.production.sqlite"
