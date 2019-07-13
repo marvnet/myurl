@@ -219,27 +219,31 @@ app.post("/api/insights", (req, res, next) => {
 })
 
 app.get("/:shortcode", (req, res, next) => {
-    models.Link.count({
-        where: {
-            shortcode: req.params.shortcode
-        }
-    })
-        .then((count) => {
-            if(
-                count
-                > 0
-            ) {
-                models.Link.findOne({
-                    where: {
-                        shortcode: req.params.shortcode
-                    }
-                })
-                    .then((link) => {
-                        res.redirect(config.redirect, link.target)
+    if(cache.indexOf(req.params.shortcode) > -1) {
+        res.redirect(config.redirect, cache[req.params.shortcode])
+    } else {
+        models.Link.count({
+            where: {
+                shortcode: req.params.shortcode
+            }
+        })
+            .then((count) => {
+                if(
+                    count
+                    > 0
+                ) {
+                    models.Link.findOne({
+                        where: {
+                            shortcode: req.params.shortcode
+                        }
                     })
-            } else {
-                res.status(404)
-                res.send(`
+                        .then((link) => {
+                            cache[req.params.shortcode] = link.target
+                            res.redirect(config.redirect, link.target)
+                        })
+                } else {
+                    res.status(404)
+                    res.send(`
 <!DOCTYPE html>
 <html>
     <head>
@@ -278,9 +282,10 @@ app.get("/:shortcode", (req, res, next) => {
         <script type="application/javascript" src="${config.bootstrapbase}js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
-                `)
-            }
-        })
+                    `)
+                }
+            })
+    }
 })
 
 
