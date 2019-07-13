@@ -222,6 +222,8 @@ app.get("/:shortcode", (req, res, next) => {
         <meta charset="utf-8">
         <title>404 > ${config.title}</title>
         <meta name="robots" content="noindex,nofollow">
+
+        <link rel="stylesheet" type="text/css" href="${config.bootstrapbase}css/bootstrap.min.css">
     </head>
     <body>
         <h1>404 > ${config.title}</h1>
@@ -230,6 +232,8 @@ app.get("/:shortcode", (req, res, next) => {
                 The shortlink you requested could not be found.
             </b>
         </p>
+
+        <script type="application/javascript" src="${config.bootstrapbase}js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
                 `)
