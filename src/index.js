@@ -100,6 +100,54 @@ const handleCreate = (params, res) => {
     }
 }
 
+const handleInsights = (params, res) => {
+    if(params.shortcode && params.key) {
+        models.Link.count({
+            where: {
+                shortcode: params.shortcode
+            }
+        })
+            .then((count) => {
+                if(
+                    count
+                    > 0
+                ) {
+                    models.Link.findOne({
+                        where: {
+                            shortcode: params.shortcode
+                        }
+                    })
+                        .then((link) => {
+                            res.json({
+                                status: "success",
+                                code: "SUCCESS",
+                                message: "Insights retrieved.",
+                                response: {
+                                    uuid: link.uuid,
+                                    shortcode: link.shortcode,
+                                    target: link.target,
+                                    created: link.createdAt,
+                                    updated: link.updatedAt
+                                }
+                            })
+                        })
+                } else {
+                    res.json({
+                        status: "error",
+                        code: "NOT_FOUND",
+                        message: "Requested shortlink not in database."
+                    })
+                }
+            })
+    } else {
+        res.json({
+            status: "error",
+            code: "NO_PARAM",
+            message: "Missing parameters."
+        })
+    }
+}
+
 app.get("/", (req, res, next) => {
     models.Link.count({
         where: {
