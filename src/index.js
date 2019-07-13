@@ -75,7 +75,7 @@ app.get("/admin", (req, res, next) => {
             xmlhttp.setRequestHeader("Content-Type", "application/json");
             xmlhttp.addEventListener("load", function (event) {
                 responseJson = JSON.parse(xmlhttp.responseText);
-                document.getElementById("response").innerHTML = 'Link created: <a target="_blank" href="http://${config.domain}/' + responseJson.response.shortcode + '">${config.domain}/' + responseJson.response.shortcode + '</a>';
+                document.getElementById("response").innerHTML = '<div class="card"><div class="card-body">Link created: <a target="_blank" href="http://${config.domain}/' + responseJson.response.shortcode + '">${config.domain}/' + responseJson.response.shortcode + '</a></div></div>';
             });
             xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
         }
