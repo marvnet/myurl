@@ -62,8 +62,28 @@ app.get("/", (req, res, next) => {
 app.get("/api/create", (req, res, next) => {
     if(req.query.target && req.query.key) {
         models.Link.create({
-            target: req.query.target
+            target: req.query.target,
+            shortcode: createCode(6)
         })
+            .then((link) => {
+                res.json({
+                    status: "success",
+                    code: "SUCCESS",
+                    message: "Shortlink created.",
+                    response: {
+                        id: link.uuid,
+                        shortcode: link.shortcode,
+                        target: link.target
+                    }
+                })
+            })
+            .catch((error) => {
+                res.json({
+                    status: "error",
+                    code: "DATABASE",
+                    message: error
+                })
+            })
     } else {
         res.json({
             status: "error",
