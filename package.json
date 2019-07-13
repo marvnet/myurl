@@ -6,5 +6,11 @@
   "repository": "https://github.com/marvnet/nodeurl",
   "author": "MagicMarvMan <marvin.kai@gmx.de>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.11.0",
+    "sequelize": "^5.9.4",
+    "sqlite3": "^4.0.9"
+  }
 }
