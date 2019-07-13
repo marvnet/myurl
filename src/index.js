@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({
 const config = require("./../config")
 const models = require("./models")
 
+let cache = {}
+
 const createCode = (length) => {
     let result = ""
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
