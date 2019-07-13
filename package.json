@@ -4,7 +4,7 @@
   "description": "Simple url shortener implemented with Express and Sequelize",
   "main": "src/index.js",
   "repository": "https://github.com/marvnet/nodeurl",
-  "author": "MagicMarvMan <marvin.kai@gmx.de>",
+  "author": "MarvNet Digital UG (haftungsbeschraenkt) <oss@marvnet.digital>",
   "license": "AGPL-3.0-or-later",
   "private": false,
   "dependencies": {

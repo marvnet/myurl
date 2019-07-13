@@ -11,3 +11,7 @@ There are also other variables that you can set, like the canonical domain or th
 
 ## Contribute!
 This is GitHub, just create a pull request with your changes!
+
+### License?
+This project is licensed under the _GNU Affero General Public License_.
+You can get a copy from the LICENSE.md file in our GitHub repo.
