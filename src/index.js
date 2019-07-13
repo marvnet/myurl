@@ -37,14 +37,18 @@ app.get("/admin", (req, res, next) => {
     <link rel="stylesheet" type="text/css" href="${config.bootstrapbase}css/bootstrap.min.css">
 </head>
 <body>
-    <h1>${config.title}</h1>
-    <form action="javascript:void(0);" onsubmit="javascript:createCallback();">
-        <input type="text" placeholder="Zieladresse" id="targetInput"><br>
-        <input type="submit" value="Erstellen">
-    </form>
-    <p>
-        <b id="response"></b>
-    </p>
+    <main>
+        <div class="container">
+            <h1>${config.title}</h1>
+            <form action="javascript:void(0);" onsubmit="javascript:createCallback();">
+                <input type="text" placeholder="Zieladresse" id="targetInput"><br>
+                <input type="submit" value="Erstellen">
+            </form>
+            <p>
+                <b id="response"></b>
+            </p>
+        </div>
+    </main>
 
     <script type="application/javascript">
         function createLink(target) {
