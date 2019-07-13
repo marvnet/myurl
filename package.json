@@ -8,6 +8,7 @@
   "license": "AGPL-3.0-or-later",
   "private": false,
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "pg": "^7.11.0",
     "sequelize": "^5.9.4",
