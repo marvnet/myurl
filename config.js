@@ -2,6 +2,7 @@
 module.exports = {
     title: "MyURL",
     domain: "localhost:8080",
+    redirect: 302,
     production: {
         dialect: "sqlite",
         storage: "./db.production.sqlite"
