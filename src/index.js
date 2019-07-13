@@ -3,6 +3,7 @@
 const express = require("express")
 const app = express()
 
+const config = require("./../config")
 const models = require("./models")
 
 app.get("/admin", (req, res, next) => {
@@ -11,10 +12,10 @@ app.get("/admin", (req, res, next) => {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>nodeURL</title>
+    <title>${config.title}</title>
 </head>
 <body>
-    <h1>nodeURL</h1>
+    <h1>${config.title}</h1>
 </body>
 </html>
 `)
@@ -70,11 +71,11 @@ app.get("/:shortcode", (req, res, next) => {
 <html>
     <head>
         <meta charset="utf-8">
-        <title>404 > nodeURL</title>
+        <title>404 > ${config.title}</title>
         <meta name="robots" content="noindex,nofollow">
     </head>
     <body>
-        <h1>404 > nodeURL</h1>
+        <h1>404 > ${config.title}</h1>
         <p>
             <b>
                 The shortlink you requested could not be found.
