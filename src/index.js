@@ -117,7 +117,7 @@ app.get("/", (req, res, next) => {
                     }
                 })
                     .then((link) => {
-                        res.redirect(link.target)
+                        res.redirect(config.redirect, link.target)
                     })
             } else {
                 res.redirect("/admin")
@@ -150,7 +150,7 @@ app.get("/:shortcode", (req, res, next) => {
                     }
                 })
                     .then((link) => {
-                        res.redirect(link.target)
+                        res.redirect(config.redirect, link.target)
                     })
             } else {
                 res.status(404)
