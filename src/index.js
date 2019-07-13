@@ -132,6 +132,7 @@ const handleInsights = (params, res) => {
                             })
                         })
                 } else {
+                    res.status(404)
                     res.json({
                         status: "error",
                         code: "NOT_FOUND",
