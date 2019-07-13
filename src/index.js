@@ -134,27 +134,27 @@ app.post("/api/create", (req, res, next) => {
 })
 
 app.get("/:shortcode", (req, res, next) => {
-    if(
-        (
-            models.Link.count({
-                where: {
-                    shortcode: req.params.shortcode
-                }
-            })
-        )
-        > 0
-    ) {
-        models.Link.findOne({
-            where: {
-                shortcode: req.params.shortcode
-            }
-        })
-            .then((link) => {
-                res.redirect(link.target)
-            })
-    } else {
-        res.status(404)
-        res.send(`
+    models.Link.count({
+        where: {
+            shortcode: req.params.shortcode
+        }
+    })
+        .then((count) => {
+            if(
+                count
+                > 0
+            ) {
+                models.Link.findOne({
+                    where: {
+                        shortcode: req.params.shortcode
+                    }
+                })
+                    .then((link) => {
+                        res.redirect(link.target)
+                    })
+            } else {
+                res.status(404)
+                res.send(`
 <!DOCTYPE html>
 <html>
     <head>
@@ -171,8 +171,9 @@ app.get("/:shortcode", (req, res, next) => {
         </p>
     </body>
 </html>
-        `)
-    }
+                `)
+            }
+        })
 })
 
 
