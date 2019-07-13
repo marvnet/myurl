@@ -17,5 +17,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {})
 
+    Link.associate = (models) => {
+        models.Link.belongsTo(models.Domain, {
+            onDelete: 'cascade'
+        })
+    }
+
     return Link
 }
