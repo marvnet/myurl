@@ -181,6 +181,14 @@ app.post("/api/create", (req, res, next) => {
     handleCreate(req.body, res)
 })
 
+app.get("/api/insights", (req, res, next) => {
+    handleInsights(req.query, res)
+})
+
+app.post("/api/insights", (req, res, next) => {
+    handleInsights(req.body, res)
+})
+
 app.get("/:shortcode", (req, res, next) => {
     models.Link.count({
         where: {
