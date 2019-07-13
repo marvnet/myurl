@@ -6,6 +6,20 @@ const app = express()
 const config = require("./../config")
 const models = require("./models")
 
+const createCode = (length) => {
+    let result = ""
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+    const charactersLength = characters.length
+    for(let i = 0; i < length; i++) {
+        result += characters.charAt(
+            Math.floor(
+                Math.random() * charactersLength
+            )
+        )
+    }
+    return result
+}
+
 app.get("/admin", (req, res, next) => {
     res.send(`
 <!DOCTYPE html>
@@ -42,6 +56,20 @@ app.get("/", (req, res, next) => {
             })
     } else {
         res.redirect("/admin")
+    }
+})
+
+app.get("/api/create", (req, res, next) => {
+    if(req.query.target && req.query.key) {
+        models.Link.create({
+            target: req.query.target
+        })
+    } else {
+        res.json({
+            status: "error",
+            code: "NO_PARAM",
+            message: "Missing parameters."
+        })
     }
 })
 
