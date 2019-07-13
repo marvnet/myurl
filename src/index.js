@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({
 const config = require("./../config")
 const models = require("./models")
 
+let debug = false
+
 if(process.env.NODE_ENV == "production") {
-    const debug = false
+    debug = false
 } else {
-    const debug = true
+    debug = true
 }
 
 let cache = {}
