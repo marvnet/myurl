@@ -1,7 +1,7 @@
 
 module.exports = {
     title: "MyURL",
-    domain: "localhost",
+    domain: "localhost:8080",
     production: {
         dialect: "sqlite",
         storage: "./db.production.sqlite"
