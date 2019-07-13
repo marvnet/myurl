@@ -226,12 +226,16 @@ app.get("/:shortcode", (req, res, next) => {
         <link rel="stylesheet" type="text/css" href="${config.bootstrapbase}css/bootstrap.min.css">
     </head>
     <body>
+        <main>
+            <div class="container">
+                <p>
+                    <b>
+                        The shortlink you requested could not be found.
+                    </b>
+                </p>
+            </div>
+        </main>
         <h1>404 > ${config.title}</h1>
-        <p>
-            <b>
-                The shortlink you requested could not be found.
-            </b>
-        </p>
 
         <script type="application/javascript" src="${config.bootstrapbase}js/bootstrap.bundle.min.js"></script>
     </body>
