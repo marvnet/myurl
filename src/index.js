@@ -20,6 +20,30 @@ app.get("/admin", (req, res, next) => {
 `)
 })
 
+app.get("/", (req, res, next) => {
+    if(
+        (
+            models.Link.count({
+                where: {
+                    shortcode: "index"
+                }
+            })
+        )
+        > 0
+    ) {
+        models.Link.findOne({
+            where: {
+                shortcode: "index"
+            }
+        })
+            .then((link) => {
+                res.redirect(link.target)
+            })
+    } else {
+        res.redirect("/admin")
+    }
+})
+
 
 // start app
 models.sequelize.sync().then(() => {
