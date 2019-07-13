@@ -61,6 +61,7 @@ app.get("/admin", (req, res, next) => {
                 </div>
                 <input type="submit" value="Create link" class="btn btn-primary">
             </form>
+            <br>
             <div id="response">
 
             </div>
