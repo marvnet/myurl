@@ -52,7 +52,7 @@ app.get("/admin", (req, res, next) => {
             xmlhttp.setRequestHeader("Content-Type", "application/json");
             xmlhttp.addEventListener("load", function (event) {
                 responseJson = JSON.parse(xmlhttp.responseText);
-                document.getElementById("response").innerHTML = 'Link created: <a href="http://' + config.domain + '/' + responseJson.shortcode + '">' + config.domain + '/' + responseJson.shortcode + '</a>';
+                document.getElementById("response").innerHTML = 'Link created: <a href="http://${config.domain}/' + responseJson.shortcode + '">${config.domain}/' + responseJson.shortcode + '</a>';
             });
             xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
         }
