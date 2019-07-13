@@ -301,5 +301,6 @@ app.get("/:shortcode", (req, res, next) => {
 models.sequelize.sync().then(() => {
     app.listen(process.env.PORT || 3000, () => {
         console.log("App listening on port " + process.env.PORT || 3000 + " !")
+        if(debug) console.log("Debug mode enabled.")
     })
 })
