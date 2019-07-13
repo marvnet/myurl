@@ -227,7 +227,7 @@ app.post("/api/insights", (req, res, next) => {
 })
 
 app.get("/:shortcode", (req, res, next) => {
-    if(cache[req.params.shortcode] > -1) {
+    if(cache[req.params.shortcode]) {
         if(debug) {
             console.log(`GET /${req.params.shortcode}: [CACHE]`)
             res.setHeader("X-Cache", true)
