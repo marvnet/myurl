@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         models.Link.belongsTo(models.Domain, {
             onDelete: 'cascade'
         })
+        models.Link.belongsTo(models.User, {
+            onDelete: 'cascade'
+        })
     }
 
     return Link
