@@ -32,7 +32,7 @@ app.get("/admin", (req, res, next) => {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>${config.title}</title>
+    <title>Admin > ${config.title}</title>
 </head>
 <body>
     <h1>${config.title}</h1>
