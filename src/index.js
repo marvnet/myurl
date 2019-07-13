@@ -35,34 +35,10 @@ app.get("/admin", (req, res, next) => {
 `)
 })
 
-app.get("/", (req, res, next) => {
-    if(
-        (
-            models.Link.count({
-                where: {
-                    shortcode: "index"
-                }
-            })
-        )
-        > 0
-    ) {
-        models.Link.findOne({
-            where: {
-                shortcode: "index"
-            }
-        })
-            .then((link) => {
-                res.redirect(link.target)
-            })
-    } else {
-        res.redirect("/admin")
-    }
-})
-
-app.get("/api/create", (req, res, next) => {
-    if(req.query.target && req.query.key) {
+const handleCreate = (params, res) => {
+    if(params.target && params.key) {
         models.Link.create({
-            target: req.query.target,
+            target: params.target,
             shortcode: createCode(6)
         })
             .then((link) => {
@@ -91,6 +67,34 @@ app.get("/api/create", (req, res, next) => {
             message: "Missing parameters."
         })
     }
+}
+
+app.get("/", (req, res, next) => {
+    if(
+        (
+            models.Link.count({
+                where: {
+                    shortcode: "index"
+                }
+            })
+        )
+        > 0
+    ) {
+        models.Link.findOne({
+            where: {
+                shortcode: "index"
+            }
+        })
+            .then((link) => {
+                res.redirect(link.target)
+            })
+    } else {
+        res.redirect("/admin")
+    }
+})
+
+app.get("/api/create", (req, res, next) => {
+    handleCreate(req.query, res)
 })
 
 app.get("/:shortcode", (req, res, next) => {
