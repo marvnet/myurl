@@ -71,6 +71,7 @@ app.get("/:shortcode", (req, res, next) => {
     <head>
         <meta charset="utf-8">
         <title>404 > nodeURL</title>
+        <meta name="robots" content="noindex,nofollow">
     </head>
     <body>
         <h1>404 > nodeURL</h1>
