@@ -46,7 +46,7 @@ app.get("/admin", (req, res, next) => {
 
     <script type="application/javascript">
         function createLink(target) {
-            var xmhttp = new XMLHttpRequest();
+            var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("POST", "/api/create");
             xmlhttp.setRequestHeader("Content-Type", "application/json");
             xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
