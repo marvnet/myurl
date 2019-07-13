@@ -55,12 +55,11 @@ app.get("/admin", (req, res, next) => {
         <div class="container">
             <h1>${config.title}</h1>
             <form action="javascript:void(0);" onsubmit="javascript:createCallback();">
-                <div class="form-control">
-                    <label for="inputLink">Target url</label>
-                    <input type="text" class="form-control" id="inputLink" aria-describedby="linkHelp" placeholder="Enter link">
-                    <small id="linkHelp" class="form-text text-muted">Please enter the link you want to shorten.</small>
+                <div class="form-group">
+                    <label for="inputLink">Target URL</label>
+                    <input type="text" class="form-control" id="inputLink" placeholder="Target URL">
                 </div>
-                <input type="submit" value="Generate" class="btn btn-primary">
+                <input type="submit" value="Create link" class="btn btn-primary">
             </form>
             <p>
                 <b id="response"></b>
