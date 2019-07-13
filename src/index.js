@@ -101,27 +101,28 @@ const handleCreate = (params, res) => {
 }
 
 app.get("/", (req, res, next) => {
-    if(
-        (
-            models.Link.count({
-                where: {
-                    shortcode: "index"
-                }
-            })
-        )
-        > 0
-    ) {
-        models.Link.findOne({
-            where: {
-                shortcode: "index"
+    models.Link.count({
+        where: {
+            shortcode: "index"
+        }
+    })
+        .then((count) => {
+            if(
+                count
+                > 0
+            ) {
+                models.Link.findOne({
+                    where: {
+                        shortcode: "index"
+                    }
+                })
+                    .then((link) => {
+                        res.redirect(link.target)
+                    })
+            } else {
+                res.redirect("/admin")
             }
         })
-            .then((link) => {
-                res.redirect(link.target)
-            })
-    } else {
-        res.redirect("/admin")
-    }
 })
 
 app.get("/api/create", (req, res, next) => {
