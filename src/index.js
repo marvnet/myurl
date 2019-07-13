@@ -36,7 +36,7 @@ app.get("/admin", (req, res, next) => {
 </head>
 <body>
     <h1>${config.title}</h1>
-    <form action="javascript:void(0);" onsubmit="javascript:createCallback();">
+    <form action="javascript:createCallback();">
         <input type="text" placeholder="Zieladresse" id="targetInput"><br>
         <input type="submit" value="Erstellen">
     </form>
