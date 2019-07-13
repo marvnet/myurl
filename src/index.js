@@ -54,7 +54,7 @@ app.get("/admin", (req, res, next) => {
                 responseJson = JSON.parse(xmlhttp.responseText);
                 console.log(xmlhttp.responseText)
                 console.log(responseJson)
-                document.getElementById("response").innerHTML = 'Link created: <a href="http://${config.domain}/' + responseJson.shortcode + '">${config.domain}/' + responseJson.shortcode + '</a>';
+                document.getElementById("response").innerHTML = 'Link created: <a href="http://${config.domain}/' + responseJson.response.shortcode + '">${config.domain}/' + responseJson.response.shortcode + '</a>';
             });
             xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
         }
