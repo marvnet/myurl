@@ -1,0 +1,6 @@
+{
+    "events": {
+        "start": "export NODE_ENV=development && rm db.development.sqlite",
+        "restart": "export NODE_ENV=development && rm db.development.sqlite"
+    }
+}
