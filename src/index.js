@@ -36,6 +36,26 @@ app.get("/admin", (req, res, next) => {
 </head>
 <body>
     <h1>${config.title}</h1>
+    <form action="#" method="post" onsubmit="javascript:createCallback();">
+        <input type="text" placeholder="Zieladresse" id="targetInput"><br>
+        <input type="submit" value="Erstellen">
+    </form>
+    <p>
+        <b id="response"></b>
+    </p>
+
+    <script type="application/javascript">
+        function createLink(target) {
+            var xmhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "/api/create");
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({target: target, key: "000000"}));
+        }
+
+        function createCallback() {
+            createLink(document.getElementById("targetInput").value);
+        }
+    </script>
 </body>
 </html>
 `)
