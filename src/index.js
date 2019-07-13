@@ -33,6 +33,8 @@ app.get("/admin", (req, res, next) => {
 <head>
     <meta charset="utf-8">
     <title>Admin > ${config.title}</title>
+
+    <link rel="stylesheet" type="text/css" href="${config.bootstrapbase}css/bootstrap.min.css">
 </head>
 <body>
     <h1>${config.title}</h1>
@@ -61,6 +63,8 @@ app.get("/admin", (req, res, next) => {
             createLink(document.getElementById("targetInput").value);
         }
     </script>
+
+    <script type="application/javascript" src="${config.bootstrapbase}js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 `)
