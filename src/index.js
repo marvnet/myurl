@@ -60,7 +60,7 @@ app.get("/admin", (req, res, next) => {
                     <input type="text" class="form-control" id="inputLink" aria-describedby="linkHelp" placeholder="Enter link">
                     <small id="linkHelp" class="form-text text-muted">Please enter the link you want to shorten.</small>
                 </div>
-                <input type="submit" value="Erstellen" class="btn btn-primary">
+                <input type="submit" value="Generate" class="btn btn-primary">
             </form>
             <p>
                 <b id="response"></b>
