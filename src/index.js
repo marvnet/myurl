@@ -97,6 +97,10 @@ app.get("/api/create", (req, res, next) => {
     handleCreate(req.query, res)
 })
 
+app.post("/api/create", (req, res, next) => {
+    handleCreate(req.body, res)
+})
+
 app.get("/:shortcode", (req, res, next) => {
     if(
         (
